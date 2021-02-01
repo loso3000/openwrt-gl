@@ -1,7 +1,6 @@
 #!/bin/bash
 # 修改主机名字
-#sed -i 's/OpenWrt/GodROS/g' package/base-files/files/bin/config_generate
-sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(shell date +%Y%m%d)-sirpdboy-N18.06-/g' include/image.mk
+#sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(shell date +%Y%m%d)-sirpdboy-N18.06-/g' include/image.mk
 
 # 内核显示增加自己个性名称
 date1='S'`TZ=UTC-8 date +%Y.%m.%d -d +"0"days`
@@ -22,7 +21,7 @@ sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999
 #mkdir -p /workdir/openwrt/package/lean
 
 # Add luci-app-ssr-plus
-cd /workdir/openwrt/package/lean
+#cd /workdir/openwrt/package/lean
 git clone https://github.com/fw876/helloworld /workdir/openwrt/package/lean
 
 cd /workdir/lede/package/lean
