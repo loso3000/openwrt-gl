@@ -23,7 +23,7 @@ sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999
 # Add luci-app-ssr-plus
 #cd /workdir/openwrt/package/lean
 git clone https://github.com/fw876/helloworld /workdir/openwrt/package/lean
-
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean /workdir/openwrt/package/lean
 cd /workdir/lede/package/lean
 plist="shadowsocksr-libev pdnsd-alt microsocks dns2socks simple-obfs v2ray-plugin v2ray xray trojan ipt2socks redsocks2 kcptun luci-app-zerotier vlmcsd luci-app-vlmcsd"
 for dir in $plist
@@ -71,3 +71,5 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 # Add adbyby
 cp -r /workdir/lede/package/lean/adbyby ./
 cp -r /workdir/lede/package/lean/luci-app-adbyby-plus ./
+
+rm -rf /workdir/openwrt/feeds/packages/net/wget
