@@ -38,13 +38,13 @@ do
 done
 
 cd /workdir/openwrt
-[ -d /workdir/openwrt/feeds/gli_pub/shadowsocks-libev ] && mv /workdir/openwrt/feeds/gli_pub/shadowsocks-libev /workdir/openwrt/feeds/gli_pub/shadowsocks-libev.bak
+[ -d /workdir/openwrt/feeds/gli_pub/shadowsocks-libev ] && rm -rf  /workdir/openwrt/feeds/gli_pub/shadowsocks-libev
 if [ -d /workdir/lede/feeds/packages/net/shadowsocks-libev ]
 then
-    [ -d /workdir/openwrt/feeds/packages/net/shadowsocks-libev ] && mv /workdir/openwrt/feeds/packages/net/shadowsocks-libev /workdir/openwrt/feeds/packages/net/shadowsocks-libev.bak
+    [ -d /workdir/openwrt/feeds/packages/net/shadowsocks-libev ] && rm -rf  /workdir/openwrt/feeds/packages/net/shadowsocks-libev
     [ -d /workdir/openwrt/feeds/gli_pub ] && cp -r /workdir/lede/feeds/packages/net/shadowsocks-libev /workdir/openwrt/feeds/gli_pub/shadowsocks-libev
     [ -d /workdir/openwrt/package/lean/helloworld ] && cp -r /workdir/lede/feeds/packages/net/shadowsocks-libev /workdir/openwrt/package/lean/helloworld/
-    cp -r /workdir/lede/feeds/packages/net/shadowsocks-libev /workdir/openwrt/feeds/packages/net/shadowsocks-libev
+    # cp -r /workdir/lede/feeds/packages/net/shadowsocks-libev /workdir/openwrt/feeds/packages/net/shadowsocks-libev
 fi
 
 rm -rf /workdir/openwrt/feeds/packages/net/wget
