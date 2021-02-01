@@ -1,4 +1,4 @@
-
+#!/bin/bash
 # 修改主机名字
 #sed -i 's/OpenWrt/GodROS/g' package/base-files/files/bin/config_generate
 sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(shell date +%Y%m%d)-sirpdboy-N18.06-/g' include/image.mk
@@ -19,13 +19,11 @@ echo ${date1}' by Siropboy ' >> /workdir/openwrt//package/base-files/files/etc/b
 echo '---------------------------------' >> /workdir/openwrt/package/base-files/files/etc/banner
 sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /workdir/openwrt/package/base-files/files/etc/shadow
 
-
-cd /workdir
-mkdir -p /workdir/openwrt/package/lean
+#mkdir -p /workdir/openwrt/package/lean
 
 # Add luci-app-ssr-plus
 cd /workdir/openwrt/package/lean
-git clone --depth=1 https://github.com/fw876/helloworld
+git clone https://github.com/fw876/helloworld /workdir/openwrt/package/lean
 
 cd /workdir/lede/package/lean
 plist="shadowsocksr-libev pdnsd-alt microsocks dns2socks simple-obfs v2ray-plugin v2ray xray trojan ipt2socks redsocks2 kcptun luci-app-zerotier vlmcsd luci-app-vlmcsd"
