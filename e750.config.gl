@@ -1,14 +1,16 @@
 CONFIG_TARGET_ar71xx=y
 CONFIG_TARGET_ar71xx_nand=y
 CONFIG_TARGET_ar71xx_nand_DEVICE_GL-E750=y
-CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_plugin=y
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray=y
-CONFIG_PACKAGE_luci-app-passwall-plus_INCLUDE_Xray=y
+CONFIG_PACKAGE_luci-app-passwall=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_plugin=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray=n
+CONFIG_PACKAGE_luci-app-passwall-plus_INCLUDE_Xray=n
 
+CONFIG_PACKAGE_luci-app-ssr-plus=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+CONFIG_PACKAGE_luci-app-passwall-plus_INCLUDE_Xray=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=n
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2=n
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
