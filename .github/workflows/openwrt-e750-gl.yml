@@ -131,7 +131,7 @@ jobs:
       run: df -hT
 
     - name: Upload bin directory
-      env:
+      #env:
         #ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       uses: actions/upload-artifact@main
       #if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
@@ -140,7 +140,7 @@ jobs:
         path: openwrt/bin
     
     - name: Organize plugin
-      env:
+      #env:
         #ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       run: |
         if [ -e "$GITHUB_WORKSPACE/scripts/create-plugin-package.sh" ]
@@ -150,7 +150,7 @@ jobs:
         fi
         
     - name: Organize files
-      env:
+      #env:
         #ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       id: organize
       #if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
