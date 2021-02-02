@@ -131,8 +131,8 @@ jobs:
       run: df -hT
 
     - name: Upload bin directory
-      #env:
-        #ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       uses: actions/upload-artifact@main
       #if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
@@ -140,8 +140,8 @@ jobs:
         path: openwrt/bin
     
     - name: Organize plugin
-      #env:
-        #ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       run: |
         if [ -e "$GITHUB_WORKSPACE/scripts/create-plugin-package.sh" ]
         then
@@ -168,3 +168,8 @@ jobs:
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
+    - name: Upload firmware to cowtransfer
+      run: |
+         curl -fsSL git.io/file-transfer | sh
+         ./transfer cow --block 2621440 -s -p 64 --no-progress ./openwrt/bin 2>&1 | tee cowtransfer.log
+         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
